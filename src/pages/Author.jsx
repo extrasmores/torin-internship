@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
@@ -6,39 +6,21 @@ import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 
 const Author = () => {
-  const { authorId } = useParams();
-  const [user, setUser] = useState({});
+  const { id } = useParams();
+  const [authorData, setAuthorData] = useState({});
   const [loading, setLoading] = useState(true);
-  const [following, setFollowing] = useState(false);
+  // const [following, setFollowing] = useState(false);
 
   async function getAuthorData() {
     const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
-    );
-    setUser(data);
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
+    ) ;
+    setAuthorData(data);
     setLoading(false);
   }
-  setTimeout(() => {
-    setLoading(true);
+  useEffect(() => {
     getAuthorData();
-  }, 2000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }, [id]);
 
   return (
     <div id="wrapper">
@@ -64,16 +46,22 @@ const Author = () => {
 
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
-                        <h4>
-                          Monica Lucas
-                          <span className="profile_username">@monicaaaa</span>
-                          <span id="wallet" className="profile_wallet">
-                            UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
-                          </span>
-                          <button id="btn_copy" title="Copy Text">
-                            Copy
-                          </button>
-                        </h4>
+                        {loading ? (
+                          <h4>Loading...</h4>
+                        ) : (
+                          <h4>
+                            asdasdasd
+                            <span className="profile_username">
+                              @asdasd
+                            </span>
+                            <span id="wallet" className="profile_wallet">
+                              UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
+                            </span>
+                            <button id="btn_copy" title="Copy Text">
+                              Copy
+                            </button>
+                          </h4>
+                        )}
                       </div>
                     </div>
                   </div>
