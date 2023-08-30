@@ -14,7 +14,7 @@ const Author = () => {
   async function getAuthorData() {
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
-    ) ;
+    );
     setAuthorData(data);
     setLoading(false);
   }
@@ -22,11 +22,11 @@ const Author = () => {
     getAuthorData();
   }, [id]);
 
+
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
-
         <section
           id="profile_banner"
           aria-label="section"
@@ -34,7 +34,6 @@ const Author = () => {
           data-bgimage="url(images/author_banner.jpg) top"
           style={{ background: `url(${AuthorBanner}) top` }}
         ></section>
-
         <section aria-label="section">
           <div className="container">
             <div className="row">
@@ -42,20 +41,19 @@ const Author = () => {
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
-                      <img src={AuthorImage} alt="" />
-
+                      <img src={authorData.authorImage} alt="" />
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         {loading ? (
                           <h4>Loading...</h4>
                         ) : (
                           <h4>
-                            asdasdasd
+                            {authorData.authorName}
                             <span className="profile_username">
-                              @asdasd
+                              @{authorData.tag}
                             </span>
                             <span id="wallet" className="profile_wallet">
-                              UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
+                              {authorData.address}
                             </span>
                             <button id="btn_copy" title="Copy Text">
                               Copy
@@ -67,7 +65,7 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">573 followers</div>
+                      <div className="profile_follower">{authorData.followers} followers</div>
                       <Link to="#" className="btn-main">
                         Follow
                       </Link>
@@ -75,10 +73,9 @@ const Author = () => {
                   </div>
                 </div>
               </div>
-
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems />
+                  <AuthorItems user={authorData} />
                 </div>
               </div>
             </div>
