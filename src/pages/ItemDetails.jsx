@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
@@ -128,7 +127,6 @@ const ItemDetails = () => {
                       </h2>
                       <div className="item_info_counts">
                         <Skeleton count={2} width={80} height={26} />
-                        {/* <Skeleton width={80} height={26} /> */}
                       </div>
                       <>
                         <Skeleton width={525} height={100} />

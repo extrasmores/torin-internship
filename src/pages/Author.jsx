@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
@@ -118,8 +117,6 @@ const Author = () => {
                       </div>
                     ))}
                 </>
-
-               
               ) : (
                 <div className="col-md-12">
                   <div className="d_profile de-flex">
@@ -156,7 +153,6 @@ const Author = () => {
                   </div>
                 </div>
               )}
-
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
                   {!loading && <AuthorItems user={authorData} />}

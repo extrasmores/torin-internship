@@ -8,10 +8,23 @@ import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'react-loading-skeleton/dist/skeleton.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 
 
 function App() {
+
+  AOS.init({
+    offset: 25,
+    easing: "ease",
+    duration: 750,
+    mirror: false,
+    delay: 0,
+    once: true,
+  });
+
+  
   return (
     <Router>
       <Nav />
