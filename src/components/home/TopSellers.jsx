@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import { async } from "q";
 import { func } from "prop-types";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import "aos/dist/aos.css";
 
 const TopSellers = () => {
   const [topSellersData, setTopSellersData] = useState([]);
@@ -31,7 +31,12 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div
+            className="col-md-12"
+            data-aos="flip-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="1000"
+          >
             <ol className="author_list">
               {loading &&
                 new Array(12).fill(0).map((_, index) => (

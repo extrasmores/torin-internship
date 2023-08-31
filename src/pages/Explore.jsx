@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import 'aos/dist/aos.css'; 
 
 const Explore = () => {
   useEffect(() => {
@@ -29,7 +30,7 @@ const Explore = () => {
         </section>
         <section aria-label="section">
           <div className="container">
-            <div className="row">
+            <div className="row" data-aos="fade">
               <ExploreItems />
             </div>
           </div>

@@ -4,6 +4,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 import { NftItem } from "../UI/NftItem";
+import 'aos/dist/aos.css'; 
 
 const NewItems = () => {
   const [newItemsData, setNewItemsData] = useState([]);
@@ -56,7 +57,7 @@ const NewItems = () => {
   };
 
   return (
-    <section id="section-items" className="no-bottom">
+    <section id="section-items" className="no-bottom" data-aos="zoom-in-down" data-aos-delay="1000">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
