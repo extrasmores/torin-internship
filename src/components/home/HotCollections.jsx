@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
+import 'aos/dist/aos.css'; 
 
 const HotCollections = ({}) => {
   const [hotCollectionsData, setHotCollectionsData] = useState([]);
@@ -55,7 +56,7 @@ const HotCollections = ({}) => {
   };
 
   return (
-    <section id="section-collections" className="no-bottom">
+    <section id="section-collections" className="no-bottom" data-aos="zoom-in-down" data-aos-delay="1000">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

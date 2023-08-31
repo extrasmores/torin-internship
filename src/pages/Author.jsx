@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import "aos/dist/aos.css";
 
 const Author = () => {
   const { id } = useParams();
@@ -44,6 +44,8 @@ const Author = () => {
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
         <section
+          data-aos="fade"
+          data-aos-delay="200"
           id="profile_banner"
           aria-label="section"
           className="text-light"
@@ -52,7 +54,7 @@ const Author = () => {
         ></section>
         <section aria-label="section">
           <div className="container">
-            <div className="row">
+            <div className="row" data-aos="fade" data-aos-delay="200">
               {loading ? (
                 <>
                   <div className="col-md-12">
@@ -118,8 +120,6 @@ const Author = () => {
                       </div>
                     ))}
                 </>
-
-               
               ) : (
                 <div className="col-md-12">
                   <div className="d_profile de-flex">
@@ -156,7 +156,6 @@ const Author = () => {
                   </div>
                 </div>
               )}
-
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
                   {!loading && <AuthorItems user={authorData} />}

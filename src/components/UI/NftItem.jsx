@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Timer } from "./Timer";
-// import { useState, useEffect } from "react";
+import 'aos/dist/aos.css'; 
 
 export const NftItem = ({ nft, user }) => {
   return (
@@ -13,7 +13,11 @@ export const NftItem = ({ nft, user }) => {
           data-bs-placement="top"
           title="Creator: Monica Lucas"
         >
-          <img className="lazy" src={nft.authorImage || user.authorImage} alt="" />
+          <img
+            className="lazy"
+            src={nft.authorImage || user.authorImage}
+            alt=""
+          />
           <i className="fa fa-check"></i>
         </Link>
       </div>
@@ -22,7 +26,6 @@ export const NftItem = ({ nft, user }) => {
           <Timer nft={nft}> </Timer>
         </>
       )}
-
       <div className="nft__item_wrap">
         <div className="nft__item_extra">
           <div className="nft__item_buttons">
@@ -41,7 +44,6 @@ export const NftItem = ({ nft, user }) => {
             </div>
           </div>
         </div>
-
         <Link to={`/item-details/${nft.nftId}`}>
           <img src={nft.nftImage} className="lazy nft__item_preview" alt="" />
         </Link>
